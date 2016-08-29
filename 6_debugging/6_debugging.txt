@@ -1,0 +1,6 @@
+1st program contains a memory overrun
+2nd program contains a memory leak
+
+- debug with gdb
+- compile 1st with ElectricFence, '-lefence'
+- use valgrind to investigate both memory issues

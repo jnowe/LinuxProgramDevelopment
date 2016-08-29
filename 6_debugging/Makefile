@@ -1,18 +1,19 @@
 
-SRCS= foo.c bar.c
-CFLAGS= -g -Wall -pedantic
-LOADLIBS= -L $(HOME)/adapilot/current/training/LinuxProgramDevelopment/4_make/
-LDLIBS= myfuncs
-TARGET= foobar
+SRCS1= memover.c
+SRCS2= memleak.c
+CFLAGS= -g -Wall -pedantic -pg
+TARGET1= memover
+TARGET2= memleak
 
-foobar_basic: foo.c foo.h bar.c
-	gcc -o foobar.exe foo.c bar.c
+$(TARGET1): $(SRCS1)
+	$(CC) $(CFLAGS) -o $(TARGET1).exe $(SRCS1)
 
-$(TARGET)_cool: $(SRCS)
-	$(CC) $(CFLAGS) -o $(TARGET).exe $(SRCS)
+$(TARGET2): $(SRCS2)
+	$(CC) $(CFLAGS) -o $(TARGET2).exe $(SRCS2)
 
 clean:
 	rm -f *.o
 	rm -f *.exe
 	rm -f *.a
 	rm -f *.so.*
+	rm -f *.out

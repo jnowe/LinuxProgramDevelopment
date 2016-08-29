@@ -1,0 +1,5 @@
+strace use with ls:
+	'strace ls -lRF /2>&1 |less'
+
+Write a program that invokes syscall() to run a common system call
+	e.g. pid = syscall (_SYS_getpid);
