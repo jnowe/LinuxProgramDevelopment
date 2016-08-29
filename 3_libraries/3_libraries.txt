@@ -1,0 +1,19 @@
+Using the simple HelloWorld:
+a) make a static library with functions and link with it:
+	1. compile bar.c into an object file with 'gcc -c bar.c'
+	2. create library with 'ar rv libmyfuncs.a *.o'
+	3. (optionaly) index the library with 'ranlib libmyfuncs.a'
+	4. link to library 'gcc -o foobar.exe foo.c -L/path/here -lmyfuncs
+		* gcc adds 'lib' prefix and extension automatically
+		* gcc defaults to dynamic linking, unless -static is used
+b) make a dynamic library with functions and link with it:
+	1. (optionaly) compile bar.c as Position Independent Code 'gcc -fPIC -c bar.c'
+	2. create shared lib using '-shared' and '-soname': 
+		'gcc -fPIC -Wl,-soname=libmyfuncs.so.1 *.o -o libmyfuncs.so.1.0 -lc
+	3. create symbolic links:
+		'ln -s libmyfuncs.so.1.0 libmyfuncs.so' = needed for compiling
+		'ln -s libmyfuncs.so.1.0 libmyfuncs.so.1' = needed to run
+	(*) on cygwin: create symbolic link for .dll 'ln -s libmyfuncs.so libmyfuncs.dll'
+	4. link with it 'gcc -o foobar_d.exe -L/path/here -lmyfuncs
+
+* dynamic linking loader Lab skipped
