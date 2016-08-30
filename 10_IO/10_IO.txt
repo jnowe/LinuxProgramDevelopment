@@ -1,0 +1,13 @@
+
+Unix I/O:
+  Basic file ops, unbuffered (not the standard I/O)
+    open(), close(), read(), write(), lseek()
+
+  Files are referenced by 'file descriptors', unsigned integers,
+  unlike the *FILE strean type used by the standard IO.
+  By default 3 file descriptors are connected:
+	0 = STDIN_FILENO
+	1 = STDOUT_FILENO
+	2 - STDERR_FILENO
+
+

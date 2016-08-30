@@ -1,0 +1,32 @@
+Filesystems, journaling FS, etc...
+
+inodes - unique identifiers for every element of the file system
+sizeof (inode entry) = 128 bytes
+
+When a file is created, it is assigned:
+* name 
+* inode number
+The directory containing it only associates the name with the inode number.
+When a user accesses the file, he uses the name but internally this name is linked
+to the file's inode number. With this number the inode is retrieved (try ls -i).
+The inode table maintains the mapping between inodes and their numbers
+	[folder] file name -> [inode table] inode number -> [FS] inode -> data
+
+file name is not in inode to allow hardlinks to files (different names pointing
+to the same inode).
+
+symlink = new file, new inode, content of inode is the pointer to 
+           the location of the original file (see soft_link.png).
+           Created with 'ln -s <file> <link>'
+	usage: 
+	  * link across filesystems
+	  * links to directories
+
+hardlink = only an entry into the directory structure, pointing
+            to the same inode.
+	usage:
+	  * better space usage
+	  * better performance
+	  * when moving the sourcefile to another location in the FS,
+	      the hardlink will still work, but the symlink will not.
+	  * redundancy: safer to have extra links to the data
