@@ -1,7 +1,7 @@
 
 SRCS1= memover.c
 SRCS2= memleak.c
-CFLAGS= -g -Wall -pedantic -pg
+CFLAGS= -g -Wall -pedantic -pg -lefence
 TARGET1= memover
 TARGET2= memleak
 

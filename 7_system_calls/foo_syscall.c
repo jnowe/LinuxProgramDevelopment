@@ -6,7 +6,7 @@
 int main (int argc, char *argv[])
 {
 	int pid = 0;
-	pid = syscall(_SYS_getpid);
+	pid = syscall(SYS_getpid);
 	printf("Process ID = %d\n", pid);
-	exit(0);
+	return 0;
 }

@@ -1,0 +1,11 @@
+1. Examine malloc() behaviour:
+   write a program that uses mallinfo() and malloc_stats() to examine system
+   allocation behaviour. Allocate a small, medium, large and observe allocation.
+   use mallopt() to turn off memory mapping or to change threshold between the
+   2 techniques.
+
+2. Running out of Memory
+   write a program that allocates memory in chunks until the system can no
+   longer obtain any more. Eventually the OOM Killer should be invoked.
+   Examine /var/log/messages to see which processes were exterminated
+   Try this with swap turned on/off. (as root 'swapoff -a' / 'swapon -a')

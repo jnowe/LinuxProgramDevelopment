@@ -1,6 +1,7 @@
 1st program contains a memory overrun
 2nd program contains a memory leak
 
-- debug with gdb
+- debug with gdb, cgdb
 - compile 1st with ElectricFence, '-lefence'
 - use valgrind to investigate both memory issues
+	'valgrind --tool=memcheck --leak-check=full memleak.exe' 
