@@ -10,4 +10,15 @@ Unix I/O:
 	1 = STDOUT_FILENO
 	2 - STDERR_FILENO
 
+  Positional I/O functions: pread(), pwrite() woork without
+  advancing the offset. Used in multi-threaded programs.
 
+  Vector I/O perform scatter/gather operations on a chain of
+  of buffers in one system call, increasing efficiency.
+
+  Standard I/O (ANSI C):
+	FILE *fopen (char *path, char *mode)
+	FILE *fdopen (int fildes, char *mode)
+	FILE *freopen (char *path, char *mod, FILE *stream)
+	...
+  The FILE structure is not meant to be poked into :)
