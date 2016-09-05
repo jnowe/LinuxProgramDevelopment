@@ -2,3 +2,7 @@
 process = instance o program execution.
 	  Eveery proccess has program code, data, variable, file descriptors and an environment.
 	  + Process ID (pid), Parent Process ID (ppid), Process Group ID (pgid)
+
+Process limits getter and setter from user space (getrlimit/setrlimit) are straightforward.
+
+/proc/ filesystem observable in memory, can be analyzed with $pc.
